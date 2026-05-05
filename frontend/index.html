@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Productivity Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <button class="hamburger" id="hamburger">☰</button>
+    <aside class="side-panel" id="side-panel">
+      <div class="brand">
+        <h1>PerfTrack</h1>
+        <p>Data-driven employee insights</p>
+      </div>
+      <nav class="menu">
+        <button id="btn-summary">Overview</button>
+        <button id="btn-before">Before Evaluation</button>
+        <button id="btn-after">After Evaluation</button>
+        <button id="btn-top">Top Performers</button>
+        <button id="btn-employees">Employee List</button>
+      </nav>
+      <div class="footer-note">
+        <small>Use the API endpoints in backend for custom queries.</small>
+      </div>
+    </aside>
+
+    <div class="content">
+      <header class="content-header">
+        <h2 id="content-title">Overview</h2>
+        <div class="controls">
+          <label>Top
+            <input id="input-top-n" type="number" min="5" max="50" value="10" />
+          </label>
+          <button id="btn-refresh">Refresh</button>
+        </div>
+      </header>
+
+      <section id="summary" class="panel">
+        <div class="section-description">
+          <h3>Dashboard Overview</h3>
+          <p>View summary statistics and key metrics from employee data. This section provides high-level employee analytics with totals and averages.</p>
+        </div>
+        <div class="stats" id="stats"></div>
+        <details class="tech-details" open>
+          <summary>Developer API Info (advanced)</summary>
+          <pre id="api-detail">Loading request log...</pre>
+        </details>
+      </section>
+
+      <section id="before" class="panel hidden">
+        <div class="section-description">
+          <h3>Before Evaluation</h3>
+          <p>Raw employee data before performance evaluation. This includes baseline employee demographics and workplace details.</p>
+        </div>
+        <div class="table-wrap"><table id="before-table"><thead></thead><tbody></tbody></table></div>
+      </section>
+
+      <section id="after" class="panel hidden">
+        <div class="section-description">
+          <h3>After Evaluation</h3>
+          <p>Employee data with performance evaluations and analysis. This shows the complete dataset including performance scores, satisfaction ratings, productivity metrics, and evaluation results for comprehensive workforce insights.</p>
+        </div>
+        <div class="table-wrap"><table id="after-table"><thead></thead><tbody></tbody></table></div>
+      </section>
+
+      <section id="table" class="panel hidden">
+        <div class="section-description">
+          <h3>Top Performers Analysis</h3>
+          <p>Browse top-performing employees sorted by performance score. Adjust the Top N value and refresh.</p>
+        </div>
+        <div class="table-wrap"><table id="data-table"><thead></thead><tbody></tbody></table></div>
+      </section>
+
+      <section id="employees" class="panel hidden">
+        <div class="section-description">
+          <h3>Employee Records</h3>
+          <p>Complete employee table for all accessible rows in the dataset.</p>
+        </div>
+        <div class="table-wrap"><table id="all-table"><thead></thead><tbody></tbody></table></div>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
